@@ -1,0 +1,725 @@
+/* 1. Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* 2. Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    /* Note: Using .jpg extension even if hidden in Windows folder view */
+    background: linear-gradient(rgba(61, 68, 87, 0.5), rgba(61, 68, 87, 0.5)), 
+                url('Banner_Photo.JPG') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* 3. Typography (Motif Colors) */
+.names {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    letter-spacing: 0.2em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.script-and {
+    font-family: 'Great Vibes', cursive;
+    color: #FABA83; /* Champagne Gold from your motif */
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin: -10px 0;
+}
+
+/* 4. Responsive Button */
+.open-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+    padding: 12px 30px;
+    background-color: #AAB4BE; /* Dusty Blue from your motif */
+    color: white;
+    text-decoration: none;
+    border: 1px solid #D5DBE5; /* Soft Grey border */
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    backdrop-filter: blur(5px);
+    transition: all 0.4s ease;
+}
+
+.open-btn:hover {
+    background-color: #3D4457; /* Deep Slate from your motif */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* 5. Mobile Responsiveness */
+@media (max-width: 768px) {
+    .names {
+        letter-spacing: 0.1em;
+    }
+    .hero {
+        background-position: center center;
+    }
+}
+
+
+/* Center alignment for the main container */
+.main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Distributes header, card, and nav evenly */
+    align-items: center; /* Centers everything horizontally */
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Specific centering for Denver & Erian */
+.names-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.names-small {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 8vw, 3rem);
+    letter-spacing: 0.2em;
+    color: white;
+    margin: 0;
+}
+
+.ampersand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #FABA83; /* Champagne Gold from your motif */
+    margin: -10px 0; /* Pulls names closer to the & */
+}
+
+/* Glass Card Centering */
+.details-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 85%;
+    max-width: 450px;
+    padding: 40px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* 1. Base Setup - FIXED TO ALLOW SCROLLING */
+/* 1. Base Setup - UPDATED FOR STABILITY */
+/* 1. The Fixed Background Layer */
+.fixed-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use your exact image and gradient */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('banner_invitation.jpeg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Puts it behind everything */
+}
+
+/* 2. Reset the Invitation Body */
+.invitation-body {
+    margin: 0;
+    padding: 0;
+    background: transparent; /* Remove the background from here */
+    color: white;
+}
+
+/* 2. Main Container - Adjusted for visibility */
+.main-container {
+    width: 100%;
+    min-height: 100vh; /* Ensures first view is full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the content vertically */
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px; /* Added padding so header isn't cut off */
+    flex-shrink: 0;
+}
+
+/* 3. Header Typography */
+.names-header {
+    margin-bottom: 40px;
+}
+
+.names-small {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    letter-spacing: 0.2em;
+    margin: 0;
+}
+
+.ampersand {
+    font-family: 'Great Vibes', cursive;
+    color: #FABA83; /* Champagne Gold Motif */
+    font-size: 2.5rem;
+    margin: -10px 0;
+}
+
+/* 4. Details Content */
+.details-content {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
+}
+
+.script-font {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    margin: 0;
+    color: #FABA83;
+}
+
+.activity {
+    font-family: 'Montserrat', sans-serif;
+    color: #C1C699; /* Sage Green from your motif */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.divider {
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 10px 0;
+}
+
+.event-date {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* 5. Two-Column Layout for Locations */
+
+
+.time-label {
+    font-family: 'Montserrat', sans-serif;
+    color: #FABA83;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.loc-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.loc-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+/* 6. Gallery Section - "Our Love Story in Frames" */
+.gallery-section {
+    width: 100%;
+    padding: 80px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* Slight darkening for the gallery area */
+}
+
+.gallery-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.photo-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 15px;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+.photo-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.photo-item {
+    flex: 0 0 calc(33.33% - 10px); 
+    scroll-snap-align: start;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+
+/* 7. Navigation Buttons */
+.nav-btn {
+    background: rgba(0, 0, 0, 0.6);
+    color: #FABA83;
+    border: 1px solid #FABA83;
+    font-size: 1.5rem;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #FABA83;
+    color: black;
+}
+
+/* 8. Responsiveness */
+@media (max-width: 1024px) {
+    .photo-item {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .columns-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .photo-item {
+        flex: 0 0 100%;
+    }
+
+    .main-container {
+        padding-top: 80px;
+    }
+}
+
+/* Split Section with extra space from the gallery */
+.split-section.invite-page {
+    display: flex;
+    flex-direction: row;
+    width: 90%; /* Makes the section slightly narrower than the screen */
+    max-width: 1000px; /* Limits the size on large PC screens */
+    margin: 100px auto; /* 100px creates the space between this and the gallery */
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 50px;
+    background: rgba(0, 0, 0, 0.4); /* Contrast background */
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+/* Making the image side smaller */
+.image-side {
+    flex: 0 0 45%; /* Limits the image width to 45% of the container */
+}
+
+.invite-img {
+    width: 100%;
+    max-width: 350px; /* Limits how large the invitation card can get */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(250, 186, 131, 0.3); /* Motif Gold border */
+}
+
+/* Text Side adjustments */
+.info-side {
+    flex: 1;
+    text-align: center;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .split-section.invite-page {
+        flex-direction: column;
+        width: 95%;
+        margin: 60px auto; /* Slightly smaller gap on mobile */
+        padding: 30px 20px;
+    }
+
+    .image-side {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .invite-img {
+        max-width: 280px; /* Even smaller for phones */
+    }
+}
+
+/* Motif Section Styling */
+.motif-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+}
+
+.motif-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: #FABA83; /* Motif Gold */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.motif-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+/* Color Circles Container */
+.color-palette {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.color-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.color-circle span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    position: absolute;
+    bottom: -20px;
+    text-transform: uppercase;
+    width: 80px;
+    text-align: center;
+}
+
+/* Mobile Adjustment */
+@media (max-width: 600px) {
+    .color-palette {
+        gap: 25px 10px; /* More vertical gap for labels */
+    }
+    .color-circle {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Container for the Maps Section */
+.maps-section {
+    width: 100%;
+    padding: 80px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Two-column layout for PC */
+.maps-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.location-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(193, 198, 153, 0.4); /* Sage Green border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location-title {
+    font-family: 'Cinzel', serif;
+    color: #FABA83; /* Champagne Gold */
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.location-image-wrapper {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.location-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Button with Sage Green theme */
+.direction-btn {
+    margin-top: 10px;
+    padding: 12px 25px;
+    background-color: transparent;
+    color: #C1C699; /* Sage Green */
+    border: 1px solid #C1C699;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.direction-btn:hover {
+    background-color: #C1C699;
+    color: #1a1a1a;
+    box-shadow: 0 5px 15px rgba(193, 198, 153, 0.3);
+}
+
+/* Mobile responsive stacking */
+@media (max-width: 850px) {
+    .maps-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .location-box {
+        width: 100%;
+    }
+}
+
+/* RSVP Section Container */
+.rsvp-section {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* Subtle dark overlay for the background image */
+    box-sizing: border-box;
+}
+
+/* The Form Wrapper */
+.rsvp-form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.9); /* Light background so form text is readable */
+    padding: 10px;
+    border-radius: 15px;
+    border: 3px solid #C1C699; /* Sage Green border from motif */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.rsvp-text {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.closing-names {
+    margin-top: 50px;
+    color: #FABA83; /* Champagne Gold */
+}
+
+.names-small-footer {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+    font-size: 1.4rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .rsvp-form-container {
+        width: 100%;
+        padding: 5px;
+    }
+    
+    .rsvp-section {
+        padding: 40px 10px;
+    }
+}
+
+/* Center the entire section */
+.gifts-section {
+    
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically if needed */
+    text-align: center;
+}
+
+.gifts-container {
+    width: 100%;
+    max-width: 500px; /* Limits width to keep text readable */
+    margin: 0 auto;
+}
+
+/* Tightening the QR Border Area */
+.qr-wrapper {
+    background: white;
+    padding: 15px; /* Reduced from 30px for a sleeker look */
+    border-radius: 12px;
+    display: inline-block;
+    border: 3px solid #C1C699; /* Sage Green motif */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    
+    /* Hardware acceleration for mobile */
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.qr-image {
+    width: 180px; /* Slightly smaller for better proportions */
+    height: 180px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.bank-name, .account-details {
+    color: #3D4457; /* Dark text for contrast on white background */
+    margin: 8px 0;
+}
+
+
+.gifts-text {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    margin-bottom: 50px;
+}
+
+/* --- Creator Footer Styling --- */
+.creator-footer {
+    background-color: #121212; /* Slightly darker than main footer for depth */
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(193, 198, 153, 0.1); /* Subtle Sage Green line */
+}
+
+.made-with {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.creator-name {
+    font-family: 'Cinzel', serif;
+    color: #C1C699; /* Sage Green Branding */
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.creator-links {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 10px;
+}
+
+.creator-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 0 5px;
+}
+
+.creator-links a:hover {
+    color: #FABA83; /* Champagne Gold hover */
+}
+
+.service-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+/*to commit the changes to github*/
+
+/* iPhone Responsiveness */
+
+/* 3. The Updated Mobile Fix */
+@media screen and (max-width: 768px) {
+    .fixed-bg {
+        /* On mobile, we use a special height to prevent the white gap */
+        height: 100dvh; 
+    }
+
+    .main-container {
+        width: 100%;
+        background: transparent;
+    }
+
+    /* Keep your stacking logic for content */
+    .columns-wrapper, .maps-container, .split-section {
+        flex-direction: column !important;
+        align-items: center;
+    }
+}
