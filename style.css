@@ -491,6 +491,26 @@ body, html {
     font-family: 'Montserrat', sans-serif;
 }
 
+.btn-location {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #7b8e78; /* Sage green - update to match your color theme */
+  color: #ffffff;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-location:hover {
+  background-color: #5f705c; /* Darker shade on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .location-title {
     font-family: 'Cinzel', serif;
     color: #FABA83; /* Champagne Gold */
